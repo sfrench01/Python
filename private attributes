@@ -1,0 +1,27 @@
+# Write your MoviePlayer class here
+class MoviePlayer:
+    firmware_version = 1.0
+    def __init__(self):
+        self.__movie = ["Forzen", "Avatar"]
+    
+    def play(self):
+        
+        self.current_movie = self.__movie[0]
+    
+    def list_movies(self):
+        return self.__movie
+    
+    def update_firmware(self, new_version):
+        self.firmware_version = new_version
+
+# The code below is used to test your class
+if __name__ == '__main__':
+    player = MoviePlayer()
+    print("Movies currently on device:", player.list_movies())
+
+    player.update_firmware(2.0)
+    print("Updated player firmware version to", player.firmware_version)
+
+    player.play()
+    print("Currently playing", f"'{player.current_movie}'")
+
