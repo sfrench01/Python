@@ -1,0 +1,10 @@
+# Write your code here
+
+# main.py
+def write_to_file():
+    # Using the 'with' context manager to write to a file
+    with open('newfile.txt', 'w') as file:
+        file.write("I enjoy learning to code in Python")
+
+if __name__ == "__main__":
+    write_to_file()
