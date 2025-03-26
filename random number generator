@@ -1,0 +1,11 @@
+import random
+# Write your function here
+def number_randomizer(count):
+    random_number = []
+    for _ in range(count):
+        random_number.append(random.randint(0,100))
+    return random_number
+
+print(number_randomizer(2)) 
+print(number_randomizer(4))
+print(number_randomizer(6))
