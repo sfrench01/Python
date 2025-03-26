@@ -1,0 +1,11 @@
+# Write your function here
+def resources_scanner(packages):
+    packages = dir(packages)
+
+    for package in packages:
+        print(package)
+
+
+if __name__ == '__main__':
+    import string 
+    resources_scanner(string)
