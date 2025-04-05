@@ -1,0 +1,75 @@
+class EmailNotValidError(Exception):
+    """ Raised when the target email is not valid """
+    def __init__(self, message="Email address is not valid."):
+        self.message = message
+        super().__init__(self.message)
+
+
+def is_email_valid(mailing_list):
+    """
+    Your docstring documentation starts here.
+
+    For more information on how to proper document your function, please refer to the official PEP8:
+    https://www.python.org/dev/peps/pep-0008/#documentation-strings.
+
+    """
+
+    for key, email in  enumerate(mailing_list): # Loop through the mailing list:
+
+        if '@' not in email: # Check if the email contains an @:
+
+            raise EmailNotValidError(f"Invalid email found at index {key}: {email}") # Raise an EmailNotValidError exception if the @ is not present
+
+        else:
+            print(f"{email} is valid")
+
+def is_email_valid_extended(mailing_list):
+    """
+    Your docstring documentation starts here.
+
+    For more information on how to proper document your function, please refer to the official PEP8:
+    https://www.python.org/dev/peps/pep-0008/#documentation-strings.
+
+    """
+    final_users_list = []  # Array to hold user ids with valid emails
+    
+    try:
+        # Loop through the mailing list
+        for key, email in enumerate(mailing_list):
+            if '@' in email:  # Check if the email contains an '@'
+                final_users_list.append(key)  # Append the index of valid emails
+            else:
+                raise EmailNotValidError(f"Invalid email found at index {key}: {email}")  # Raise an exception for invalid emails
+
+    except EmailNotValidError as e:
+        # Catch the EmailNotValidError and return the error message
+        return f"Error: {e.message}"  # Return the error message instead of crashing
+
+    # Return the list of valid email indices if no exception is raised
+    return final_users_list
+
+
+def is_email_valid_extended_finally(mailing_list):
+    """
+    Your docstring documentation starts here.
+    For more information on how to proper document your function, please refer to the official PEP8:
+    https://www.python.org/dev/peps/pep-0008/#documentation-strings.
+
+    """
+    final_users_list = []  # List to hold the indices of valid emails
+    
+    try:
+        # Loop through the mailing list
+        for key, email in enumerate(mailing_list):
+            if '@' in email:  # Check if the email contains '@'
+                final_users_list.append(email)  # Append index of valid email
+            else:
+                # Raise an exception if the email is invalid
+                raise EmailNotValidError(f"Invalid email found at index {key}: {email}")
+    except EmailNotValidError as e:
+        # Handle invalid email and print the error message
+        print(f"Error: {e}")
+        # Continue checking the next emails
+    finally:
+        # Return the list of valid email indices (this will happen regardless of exception)
+        return final_users_list
